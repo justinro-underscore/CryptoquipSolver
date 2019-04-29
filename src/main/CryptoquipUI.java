@@ -1,5 +1,6 @@
 package main;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -11,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
@@ -26,12 +28,16 @@ import javafx.stage.Stage;
 public class CryptoquipUI extends Application
 {
 	private final int MAX_LETTERS = 26;
-	private final int MAX_LABEL_LENGTH = 20;
+	public final int MAX_LABEL_LENGTH = 20;
 
+	@FXML private SplitPane splitPane;
+	@FXML private GridPane grdTranslations;
 	@FXML private GridPane grdStrings;
 
 	@FXML private Label[] codeLabels;
 	@FXML private Label[] translatedLabels;
+
+	@FXML private Button btnNewGame;
 
 	@FXML private TextField txtA;
 	@FXML private TextField txtB;
@@ -89,13 +95,24 @@ public class CryptoquipUI extends Application
 		// Start the application
 		Stage stage = new Stage();
 		stage.setTitle("Cryptoquip Solver");
+		stage.setResizable(false);
 		stage.setScene(scene);
 		initUI();
 
 		stage.show();
 
-		// TODO Move this
-		setPuzzle("FVQS HGWBC RGW HQBB SVK GUKJVKQC ZGMKR MKKCKC SG ZQTMSQTM Q ZGUTME OSQTJFQR? KOHQBQSTME HGOSO.");
+		grdTranslations.setDisable(true);
+		btnNewGame.fire();
+	}
+
+	public void exitNewGame(String input)
+	{
+		if(!input.isEmpty())
+		{
+			setPuzzle(input);
+			grdTranslations.setDisable(false);
+		}
+		splitPane.setDisable(false);
 	}
 
 	/**
@@ -156,6 +173,16 @@ public class CryptoquipUI extends Application
 		{
 			initTextFieldListener(textFields[i], i);
 		}
+		btnNewGame.setOnAction(al -> {
+			splitPane.setDisable(true);
+			try {
+				new NewGameUI(this);
+			}
+			catch (IOException e) {
+				System.out.println("Error loading NewGameUI!");
+				e.printStackTrace();
+			}
+		});
 	}
 
 	/**
@@ -209,6 +236,8 @@ public class CryptoquipUI extends Application
 		solutionStr = code.toUpperCase();
 		String[] lblStrings = splitString(solutionStr);
 
+		grdStrings.getChildren().clear();
+
 		// Set up the labels
 		translatedLabels = new Label[lblStrings.length];
 		codeLabels = new Label[lblStrings.length];
@@ -256,7 +285,7 @@ public class CryptoquipUI extends Application
 		// Set up the string lines
 		String[] splitStrs = strOrig.split(" ");
 		if(splitStrs[0].length() > MAX_LABEL_LENGTH)
-			throw new RuntimeException("Error! Word too big: \"" + splitStrs[0] + "\"\nWords must be 20 letters or shorter");
+			throw new RuntimeException(splitStrs[0]);
 		res.add(splitStrs[0]);
 
 		// Loop through all strings
@@ -264,7 +293,7 @@ public class CryptoquipUI extends Application
 		{
 			String str = splitStrs[i];
 			if(str.length() > MAX_LABEL_LENGTH)
-				throw new RuntimeException("Error! Word too big: \"" + splitStrs[i] + "\"\nWords must be 20 letters or shorter");
+				throw new RuntimeException(splitStrs[i]);
 			String currStr = res.get(res.size()-1);
 			if(currStr.length() + 1 + str.length() <= MAX_LABEL_LENGTH) // Check if adding the word will go over the limit (add 1 for ' ')
 				res.set(res.size()-1, currStr + " " + str);
