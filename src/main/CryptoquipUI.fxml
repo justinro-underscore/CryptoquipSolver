@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -28,7 +29,6 @@
                       <RowConstraints maxHeight="-Infinity" minHeight="10.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="btn" mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
                         <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -39,7 +39,7 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <GridPane fx:id="grdCode" GridPane.rowIndex="1">
+                              <GridPane fx:id="grdStrings" GridPane.rowIndex="1">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 </columnConstraints>
@@ -90,78 +90,117 @@
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtA" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="0" />
                               <Label text="B" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtB" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" />
                               <Label text="C" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtC" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
                               <Label text="D" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtD" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
                               <Label text="E" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" />
                               <Label text="F" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtF" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5" />
                               <Label text="G" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtG" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="6" />
                               <Label text="H" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtH" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="7" />
                               <Label text="I" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtI" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="8" />
                               <Label text="J" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtJ" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="9" />
                               <Label text="K" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtK" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="10" />
                               <Label text="L" GridPane.halignment="RIGHT" GridPane.rowIndex="11">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtL" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="11" />
                               <Label text="M" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtM" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="12" />
                            </children>
@@ -191,78 +230,117 @@
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtN" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="0" />
                               <Label text="O" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtO" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" />
                               <Label text="P" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtP" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
                               <Label text="Q" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtQ" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
                               <Label text="R" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtR" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" />
                               <Label text="S" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtS" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5" />
                               <Label text="T" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtT" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="6" />
                               <Label text="U" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtU" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="7" />
                               <Label text="V" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtV" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="8" />
                               <Label text="W" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtW" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="9" />
                               <Label text="X" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtX" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="10" />
                               <Label text="Y" GridPane.halignment="RIGHT" GridPane.rowIndex="11">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtY" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="11" />
                               <Label text="Z" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="18.0" />
+                                 </font>
                               </Label>
                               <TextField fx:id="txtZ" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="12" />
                            </children>
