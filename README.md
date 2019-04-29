@@ -1,5 +1,12 @@
 # Cryptoquip Solver
 
+## How to run:
+
+Download the *__CryptoquipSolver.jar__* from this page. Then simply double click
+the .jar to run the application.
+
+## What is this program?
+
 I like the Cryptoquips in the University Daily Kansas, but there's a problem -
 it's a pain to constantly be guessing something, then erasing it when it turns
 out to be the wrong letter. In order to fix that, I created the
