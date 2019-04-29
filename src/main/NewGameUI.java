@@ -72,11 +72,17 @@ public class NewGameUI
 					stage.close();
 				}
 				catch(RuntimeException e) {
-					showDialogBox("Input Error", "Word Too Long", "Your word \n\"" + e.getMessage() + "\"\n is too long. Words must be at most " + base.MAX_LABEL_LENGTH + " letters long.", AlertType.ERROR);
+					String errorMsg = e.getMessage();
+					if(errorMsg.charAt(0) == '0')
+						showDialogBox("Input Error", "Word Too Long", "A word is too long. Words must be at most " + base.MAX_LABEL_LENGTH + " letters long.\n\"" + errorMsg.substring(1) + "\"", AlertType.ERROR, false);
+					else if(errorMsg.charAt(0) == '1')
+						showDialogBox("Input Error", "Length Too Long", "Your code is too long! Please shorten it.", AlertType.ERROR, true);
+					else
+						e.printStackTrace();
 				}
 			}
 			else
-				showDialogBox("Input Error", "Empty Input!", "You must insert a code to run the program.", AlertType.ERROR);
+				showDialogBox("Input Error", "Empty Input!", "You must insert a code to run the program.", AlertType.ERROR, true);
 		});
 
 		// Cancels the user creation
@@ -92,15 +98,19 @@ public class NewGameUI
 	 * @param header String representing head of dialog box
 	 * @param content Content of dialog box
 	 * @param type Type of dialog box
+	 * @param pad If true, pad the alert message to make it longer
 	 */
-	public void showDialogBox(String title, String header, String content, AlertType type)
+	public void showDialogBox(String title, String header, String content, AlertType type, boolean pad)
 	{
 		Alert alert = new Alert(type);
 		alert.setTitle(title);
 		alert.setHeaderText(header);
 		Label label = new Label(content);
 		label.setWrapText(true);
-		label.setMaxWidth(400);
+		if(pad)
+			label.setPrefWidth(400);
+		else
+			label.setMaxWidth(400);
 		alert.getDialogPane().setContent(label);
 
 		alert.showAndWait();

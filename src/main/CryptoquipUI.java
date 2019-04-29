@@ -27,8 +27,9 @@ import javafx.stage.Stage;
 
 public class CryptoquipUI extends Application
 {
-	private final int MAX_LETTERS = 26;
-	public final int MAX_LABEL_LENGTH = 20;
+	private final int MAX_LETTERS = 26; // Amount of letters in the alphabet
+	public final int MAX_LABEL_LENGTH = 20; // Max amount of letters that can be in one line before wrapping
+	public final int MAX_LABEL_COUNT = 6; // Max amount of lines that can be shown before it overlaps title
 
 	@FXML private SplitPane splitPane;
 	@FXML private GridPane grdTranslations;
@@ -105,6 +106,11 @@ public class CryptoquipUI extends Application
 		btnNewGame.fire();
 	}
 
+	/**
+	 * Exit the new game window
+	 * @param input The input to start the game with.
+	 * 	If empty, do not start new game
+	 */
 	public void exitNewGame(String input)
 	{
 		if(!input.isEmpty())
@@ -169,10 +175,13 @@ public class CryptoquipUI extends Application
 	 */
 	private void initListeners()
 	{
+		// Initializes the text field listeners
 		for(int i = 0; i < MAX_LETTERS; i++)
 		{
 			initTextFieldListener(textFields[i], i);
 		}
+
+		// Creates a new game
 		btnNewGame.setOnAction(al -> {
 			splitPane.setDisable(true);
 			try {
@@ -199,15 +208,15 @@ public class CryptoquipUI extends Application
 				if(!field.getText().trim().isEmpty())
 				{
 					letter = field.getText().trim().charAt(0);
-					if(letter >= 'a' && letter <= 'z')
+					if(letter >= 'a' && letter <= 'z') // Switch from lowercase to uppercase
 						letter -= ('a' - 'A');
-					if(letter < 'A' || letter > 'Z')
+					if(letter < 'A' || letter > 'Z') // If the input is not a letter, ignore it
 						letter = '\0';
-					else
+					else // If it is a letter, check for duplicates
 					{
 						for(int i = 0; i < MAX_LETTERS; i++)
 						{
-							if(charTranslations[i] == letter)
+							if(charTranslations[i] == letter) // If a duplicate is found, set that letter to null
 							{
 								charTranslations[i] = '\0';
 								textFields[i].setText("");
@@ -236,6 +245,7 @@ public class CryptoquipUI extends Application
 		solutionStr = code.toUpperCase();
 		String[] lblStrings = splitString(solutionStr);
 
+		// Reset strings
 		grdStrings.getChildren().clear();
 
 		// Set up the labels
@@ -252,21 +262,22 @@ public class CryptoquipUI extends Application
 				lblCodeStr += "" + c + " ";
 				lblTranslatedStr += (c >= 'A' && c <= 'Z' ? "_" : "" + c) + " ";
 			}
-			lblCodeStr = lblCodeStr.substring(0, lblCodeStr.length() - 1);
-			lblTranslatedStr = lblTranslatedStr.substring(0, lblTranslatedStr.length() - 1);
+			lblCodeStr = lblCodeStr.substring(0, lblCodeStr.length() - 1); // Get rid of final space
+			lblTranslatedStr = lblTranslatedStr.substring(0, lblTranslatedStr.length() - 1); // Get rid of final space
 
+			// Do twice, if ii is 0, refer to code string, otherwise refer to translated string
 			for(int ii = 0; ii < 2; ii++)
 			{
 				Label lbl = new Label(ii == 0 ? lblCodeStr : lblTranslatedStr);
 				lbl.setFont(Font.font("Ubuntu Mono", 30));
-				if(ii == 0)
+				if(ii == 0) // Code string
 					lbl.setStyle("-fx-text-fill: gray");
 				grdStrings.addRow((i * 3) + ii, lbl);
 				GridPane.setHalignment(lbl, HPos.CENTER);
 
-				if(ii == 0)
+				if(ii == 0) // Code string
 					codeLabels[i] = lbl;
-				else
+				else // Translated string
 					translatedLabels[i] = lbl;
 			}
 			grdStrings.addRow((i * 3) + 2, new Label());
@@ -285,7 +296,7 @@ public class CryptoquipUI extends Application
 		// Set up the string lines
 		String[] splitStrs = strOrig.split(" ");
 		if(splitStrs[0].length() > MAX_LABEL_LENGTH)
-			throw new RuntimeException(splitStrs[0]);
+			throw new RuntimeException("0" + splitStrs[0]);
 		res.add(splitStrs[0]);
 
 		// Loop through all strings
@@ -293,13 +304,15 @@ public class CryptoquipUI extends Application
 		{
 			String str = splitStrs[i];
 			if(str.length() > MAX_LABEL_LENGTH)
-				throw new RuntimeException(splitStrs[i]);
+				throw new RuntimeException("0" + splitStrs[i]);
 			String currStr = res.get(res.size()-1);
 			if(currStr.length() + 1 + str.length() <= MAX_LABEL_LENGTH) // Check if adding the word will go over the limit (add 1 for ' ')
 				res.set(res.size()-1, currStr + " " + str);
 			else // If too long, add new line
 				res.add(str);
 		}
+		if(res.size() > MAX_LABEL_COUNT)
+			throw new RuntimeException("1");
 		return Arrays.copyOf(res.toArray(), res.size(), String[].class);
 	}
 
