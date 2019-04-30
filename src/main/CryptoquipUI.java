@@ -39,6 +39,8 @@ public class CryptoquipUI extends Application
 	@FXML private Label[] translatedLabels;
 
 	@FXML private Button btnNewGame;
+	@FXML private Button btnOpenNotes;
+	private NotesUI notesUI;
 
 	@FXML private TextField txtA;
 	@FXML private TextField txtB;
@@ -122,6 +124,15 @@ public class CryptoquipUI extends Application
 	}
 
 	/**
+	 * Exit the notes window
+	 */
+	public void exitNotes()
+	{
+		notesUI = null;
+		btnOpenNotes.setDisable(false);
+	}
+
+	/**
 	 * Initializes all aspects of the UI
 	 */
 	private void initUI()
@@ -164,6 +175,8 @@ public class CryptoquipUI extends Application
 		textFields[25] = txtZ;
 
 		charTranslations = new char[MAX_LETTERS];
+
+		notesUI = null;
 	}
 
 	/**
@@ -188,6 +201,31 @@ public class CryptoquipUI extends Application
 				e.printStackTrace();
 			}
 		});
+		// Reset the notes window
+		btnNewGame.focusedProperty().addListener(al -> {
+			if(notesUI != null)
+				notesUI.setLetter(-1);
+		});
+
+		// Opens the notes window
+		btnOpenNotes.setOnAction(al -> {
+			if(notesUI == null)
+			{
+				try {
+					notesUI = new NotesUI(this);
+					btnOpenNotes.setDisable(true);
+				}
+				catch (IOException e) {
+					System.out.println("Error loading NotesUI!");
+					e.printStackTrace();
+				}
+			}
+		});
+		// Reset the notes window
+		btnOpenNotes.focusedProperty().addListener(al -> {
+			if(notesUI != null)
+				notesUI.setLetter(-1);
+		});
 	}
 
 	/**
@@ -198,7 +236,7 @@ public class CryptoquipUI extends Application
 	private void initTextFieldListener(TextField field, int index)
 	{
 		field.focusedProperty().addListener((al, oldVal, newVal) -> {
-			if (!newVal)
+			if (!newVal) // If are already focused (add something to text box)
 			{
 				char letter = '\0';
 				if(!field.getText().trim().isEmpty())
@@ -225,6 +263,11 @@ public class CryptoquipUI extends Application
 				}
 				charTranslations[index] = letter;
 				updateStrings((char)('A' + index), letter);
+			}
+			else // If we have just received focus (set Notes window)
+			{
+				if(notesUI != null)
+					notesUI.setLetter(index);
 			}
 		});
 	}
