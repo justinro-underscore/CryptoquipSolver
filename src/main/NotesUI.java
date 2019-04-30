@@ -74,7 +74,6 @@ public class NotesUI
 		{
 			lblLetter.setText("" + (char)(index + 'A'));
 			txtNotes.setDisable(false);
-			System.out.println(currLetter + " " + index);
 			txtNotes.setText(letterNotes[index]);
 			currLetter = index;
 		}
