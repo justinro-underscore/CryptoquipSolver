@@ -27,7 +27,7 @@ public class NotesUI
 	@FXML Label lblLetter;
 
 	private int currLetter; // Keeps track of the current letter we're looking at
-	private String[] letterNotes; // Keeps track of the notes for each letter
+	private static String[] letterNotes = new String[CryptoquipUI.MAX_LETTERS]; // Keeps track of the notes for each letter
 
 	/**
 	 * Creates a new instance of the Notes window for players
@@ -49,7 +49,6 @@ public class NotesUI
 		stage.setScene(scene);
 		stage.setResizable(false);
 		stage.show();
-		initializeVars();
 		initializeListeners();
 		stage.setOnCloseRequest(e -> // In case the user exits without pressing cancel
 		{
@@ -80,15 +79,11 @@ public class NotesUI
 	}
 
 	/**
-	 * Initializes letterNotes array
+	 * Resets all the notes
 	 */
-	private void initializeVars()
+	public static void resetNotes()
 	{
 		letterNotes = new String[CryptoquipUI.MAX_LETTERS];
-		for(int i = 0; i < letterNotes.length; i++)
-		{
-			letterNotes[i] = "";
-		}
 	}
 
 	/**

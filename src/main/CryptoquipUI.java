@@ -294,6 +294,7 @@ public class CryptoquipUI extends Application
 		{
 			charTranslations[i] = '\0';
 		}
+		NotesUI.resetNotes();
 
 		// Set up the labels
 		translatedLabels = new Label[lblStrings.length];
