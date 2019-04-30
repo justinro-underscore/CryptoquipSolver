@@ -164,10 +164,6 @@ public class CryptoquipUI extends Application
 		textFields[25] = txtZ;
 
 		charTranslations = new char[MAX_LETTERS];
-		for(int i = 0; i < MAX_LETTERS; i++)
-		{
-			charTranslations[i] = '\0';
-		}
 	}
 
 	/**
@@ -245,8 +241,16 @@ public class CryptoquipUI extends Application
 		solutionStr = code.toUpperCase();
 		String[] lblStrings = splitString(solutionStr);
 
-		// Reset strings
+		// Reset variables and UI
 		grdStrings.getChildren().clear();
+		for(TextField txt : textFields)
+		{
+			txt.setText("");
+		}
+		for(int i = 0; i < charTranslations.length; i++)
+		{
+			charTranslations[i] = '\0';
+		}
 
 		// Set up the labels
 		translatedLabels = new Label[lblStrings.length];
