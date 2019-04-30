@@ -29,13 +29,13 @@ When first starting the Cryptoquip Solver, a new game window will pop up. Simply
 copy down the code into the text area and hit *Submit*. You will then be sent
 to the main page.
 
-![Cryptoquip New Game Winodw][CryptoquipNewGame]
+![Cryptoquip New Game Window][CryptoquipNewGame]
 
 Once here, you can put in text in the text field adjacent to the code. When you
 input a letter, it will automatically update the translation below the code! It's
 that simple!
 
-![Cryptoquip Main Winodw][CryptoquipMain]
+![Cryptoquip Main Window][CryptoquipMain]
 
 ## What's next for the Cryptoquip Solver?
 
@@ -47,6 +47,13 @@ Not much, honestly. The only things that I think could be added are:
 This was just a fun little project that I worked on on a lazy Sunday morning.
 Maybe I'll come back to it! (Probably not though...)
 
+### What's the solution?
+
+Here's the solution to the Cryptoquip used in this README:
+
+![Cryptoquip Solved][CryptoquipSolved]
+
 [CryptoquipMain]: doc/CryptoquipSolver1.png
 [CryptoquipNewGame]: doc/CryptoquipSolver2.png
 [CryptoquipNewspaper]: doc/CryptoquipNewspaper.jpg
+[CryptoquipSolved]: doc/CryptoquipSolved.png
