@@ -27,9 +27,9 @@ import javafx.stage.Stage;
 
 public class CryptoquipUI extends Application
 {
-	private final int MAX_LETTERS = 26; // Amount of letters in the alphabet
-	public final int MAX_LABEL_LENGTH = 20; // Max amount of letters that can be in one line before wrapping
-	public final int MAX_LABEL_COUNT = 6; // Max amount of lines that can be shown before it overlaps title
+	public static final int MAX_LETTERS = 26; // Amount of letters in the alphabet
+	public static final int MAX_LABEL_LENGTH = 20; // Max amount of letters that can be in one line before wrapping
+	public static final int MAX_LABEL_COUNT = 6; // Max amount of lines that can be shown before it overlaps title
 
 	@FXML private SplitPane splitPane;
 	@FXML private GridPane grdTranslations;

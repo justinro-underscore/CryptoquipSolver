@@ -74,7 +74,7 @@ public class NewGameUI
 				catch(RuntimeException e) {
 					String errorMsg = e.getMessage();
 					if(errorMsg.charAt(0) == '0')
-						showDialogBox("Input Error", "Word Too Long", "A word is too long. Words must be at most " + base.MAX_LABEL_LENGTH + " letters long.\n\"" + errorMsg.substring(1) + "\"", AlertType.ERROR, false);
+						showDialogBox("Input Error", "Word Too Long", "A word is too long. Words must be at most " + CryptoquipUI.MAX_LABEL_LENGTH + " letters long.\n\"" + errorMsg.substring(1) + "\"", AlertType.ERROR, false);
 					else if(errorMsg.charAt(0) == '1')
 						showDialogBox("Input Error", "Length Too Long", "Your code is too long! Please shorten it.", AlertType.ERROR, true);
 					else
